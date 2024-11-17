@@ -1,6 +1,7 @@
 services:
   postgres:
     container_name: postgres
+    image: postgres:17.1
     restart: always
     build: postgres
     ports:
