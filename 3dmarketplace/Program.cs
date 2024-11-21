@@ -27,9 +27,10 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStore
 
 var app = builder.Build();
 
+app.MapControllers();
 app.MapHealthChecks("/healthz");
 app.MapIdentityApi<IdentityUser>();
 app.UseAuthorization();
-app.MapControllers();
+
 
 app.Run();
