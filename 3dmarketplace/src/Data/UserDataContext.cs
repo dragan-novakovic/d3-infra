@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Identity;
 
 public class UserDataContext : IdentityDbContext<IdentityUser>
 {
-    public UserDataContext(DbContextOptions<UserDataContext> options) : base(options)
+
+    public readonly IConfiguration _configuration;
+    public UserDataContext(DbContextOptions<UserDataContext> options, IConfiguration configuration) : base(options)
     {
+        _configuration = configuration;
     }
 };
