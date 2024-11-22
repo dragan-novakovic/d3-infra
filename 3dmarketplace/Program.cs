@@ -13,7 +13,8 @@ builder.Configuration.SetBasePath($"{Directory.GetCurrentDirectory()}/Settings")
 
 builder.Services.AddAuthentication();
 builder.Services.AddControllers();
-
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("database_health_check", Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy);
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddDbContext<UserDataContext>(options =>
@@ -26,6 +27,9 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStore
 
 
 var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
 app.MapHealthChecks("/healthz");

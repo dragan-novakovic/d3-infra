@@ -221,3 +221,8 @@ C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Microsoft.Extens
 C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\obj\Debug\net8.0\3dmarketplace.MvcApplicationPartsAssemblyInfo.cs
