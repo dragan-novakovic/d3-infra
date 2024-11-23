@@ -45,6 +45,7 @@ app.MapControllers();
 app.MapHealthChecks("/healthz");
 app.MapIdentityApi<IdentityUser>();
 app.UseAuthorization();
+app.UseCors();
 
 
 app.Run();
