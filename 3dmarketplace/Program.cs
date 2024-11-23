@@ -11,6 +11,16 @@ builder.Configuration.SetBasePath($"{Directory.GetCurrentDirectory()}/Settings")
                      .AddEnvironmentVariables();
 
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
 builder.Services.AddAuthentication();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
