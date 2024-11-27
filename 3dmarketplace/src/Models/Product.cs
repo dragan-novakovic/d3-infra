@@ -18,6 +18,10 @@ namespace _3dmarketplace.src.Models
         public decimal Price { get; set; }
         [Required]
         public string? Description { get; set; }
+        public int Stock { get; set; }
+        [ForeignKey("UserId")]
+        public int UserId { get; set; }
+        public required UserMetadata User { get; set; }
     }
 
 }
