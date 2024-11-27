@@ -27,13 +27,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("database_health_check", Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy);
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
-builder.Services.AddDbContext<UserDataContext>(options =>
+builder.Services.AddDbContext<AplicationContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresLocal"));
 });
 
 
-builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<UserDataContext>();
+builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<AplicationContext>();
 
 
 var app = builder.Build();

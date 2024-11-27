@@ -1,13 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using _3dmarketplace.src.Models;
 
-public class UserDataContext : IdentityDbContext<UserMetadata>
+public class AplicationContext : IdentityDbContext<UserMetadata>
 {
 
     public readonly IConfiguration _configuration;
-    public UserDataContext(DbContextOptions<UserDataContext> options, IConfiguration configuration) : base(options)
+    public AplicationContext(DbContextOptions<AplicationContext> options, IConfiguration configuration) : base(options)
     {
         _configuration = configuration;
     }
