@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("3dmarketplace")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3009c1f7e8ddc1d0e4bf50426408e00deea4a1c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+201274fb17f5fd589ea18e1ed40fcd3fe5447afa")]
 [assembly: System.Reflection.AssemblyProductAttribute("3dmarketplace")]
 [assembly: System.Reflection.AssemblyTitleAttribute("3dmarketplace")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

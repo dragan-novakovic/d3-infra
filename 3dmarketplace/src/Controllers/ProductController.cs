@@ -12,10 +12,7 @@ namespace _3dmarketplace.src.Controllers
         private static readonly List<Product> _products = new()
         {
         new Product { Name = "Product 1", Price = 100, Description = "Description 1" },
-        new Product { Name = "Product 2", Price = 200, Description = "Description 2" },
-        new Product { Name = "Product 3", Price = 300, Description = "Description 3" },
-        new Product { Name = "Product 4", Price = 400, Description = "Description 4" },
-        new Product { Name = "Product 5", Price = 500, Description = "Description 5" }
+        new Product { Name = "Product 2", Price = 200, Description = "Description 2" }
         };
 
         [HttpGet]
