@@ -20,7 +20,7 @@ namespace _3dmarketplace.src.Models
         public string? Description { get; set; }
         public int Stock { get; set; }
         [ForeignKey("UserId")]
-        public int UserId { get; set; }
+        public string? UserId { get; set; }
         public required UserMetadata User { get; set; }
     }
 
