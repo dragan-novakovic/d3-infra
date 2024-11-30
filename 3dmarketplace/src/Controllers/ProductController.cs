@@ -9,9 +9,7 @@ namespace _3dmarketplace.src.Controllers
     public class ProductController : ControllerBase
     {
 
-        private static readonly List<Product> _products = new()
-        {
-        };
+        private static readonly List<Product> _products = [];
 
         [HttpGet]
         public IActionResult GetAll()
@@ -23,12 +21,7 @@ namespace _3dmarketplace.src.Controllers
         [HttpGet("{id}")]
         public ActionResult<Product> GetProduct(int id)
         {
-            var product = _products.FirstOrDefault(p => p.Id == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return product;
+            return NotFound();
         }
 
         [HttpPost]

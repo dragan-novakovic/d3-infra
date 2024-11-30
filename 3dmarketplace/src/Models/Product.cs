@@ -11,7 +11,7 @@ namespace _3dmarketplace.src.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public required int Id { get; set; }
         [Required]
         public required string Name { get; set; }
         [Required]
@@ -21,7 +21,11 @@ namespace _3dmarketplace.src.Models
         public int Stock { get; set; }
         [ForeignKey("UserId")]
         public string? UserId { get; set; }
+        [ForeignKey("CategoryId")]
+        public required int CategoryId { get; set; }
+        public required Category Category { get; set; }
         public required UserMetadata User { get; set; }
+        public ICollection<Review>? Reviews { get; set; }
     }
 
 }

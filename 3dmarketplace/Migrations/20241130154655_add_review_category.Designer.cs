@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace _3dmarketplace.Migrations
 {
     [DbContext(typeof(AplicationContext))]
-    partial class AplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20241130154655_add_review_category")]
+    partial class add_review_category
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,8 +203,6 @@ namespace _3dmarketplace.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
@@ -219,7 +220,11 @@ namespace _3dmarketplace.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("ProductId")
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("ProductId1")
                         .HasColumnType("integer");
 
                     b.Property<decimal>("Rating")
@@ -230,12 +235,11 @@ namespace _3dmarketplace.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("Reviews");
                 });
@@ -365,35 +369,18 @@ namespace _3dmarketplace.Migrations
 
             modelBuilder.Entity("_3dmarketplace.src.Models.Product", b =>
                 {
-                    b.HasOne("_3dmarketplace.src.Models.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("_3dmarketplace.src.Models.UserMetadata", "User")
                         .WithMany("Products")
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Category");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("_3dmarketplace.src.Models.Review", b =>
                 {
-                    b.HasOne("_3dmarketplace.src.Models.Product", "Product")
+                    b.HasOne("_3dmarketplace.src.Models.Product", null)
                         .WithMany("Reviews")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("_3dmarketplace.src.Models.Category", b =>
-                {
-                    b.Navigation("Products");
+                        .HasForeignKey("ProductId1");
                 });
 
             modelBuilder.Entity("_3dmarketplace.src.Models.Product", b =>
