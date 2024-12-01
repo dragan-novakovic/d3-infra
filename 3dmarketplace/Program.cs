@@ -1,4 +1,7 @@
-using Microsoft.AspNetCore.Identity;
+using _3dmarketplace.src.Interfaces;
+using _3dmarketplace.src.Models;
+using _3dmarketplace.src.Repository;
+using _3dmarketplace.src.Services;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -27,13 +30,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("database_health_check", Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy);
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+
 builder.Services.AddDbContext<AplicationContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresLocal"));
 });
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ProductService>();
 
 
-builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<AplicationContext>();
+builder.Services.AddIdentityApiEndpoints<UserMetadata>().AddEntityFrameworkStores<AplicationContext>();
 
 
 var app = builder.Build();
@@ -43,7 +50,7 @@ app.UseSwaggerUI();
 
 app.MapControllers();
 app.MapHealthChecks("/healthz");
-app.MapIdentityApi<IdentityUser>();
+app.MapIdentityApi<UserMetadata>();
 app.UseAuthorization();
 app.UseCors();
 

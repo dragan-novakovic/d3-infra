@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using _3dmarketplace.src.Models;
+using System.Data.Common;
+using _3dmarketplace.src.Services;
 
 namespace _3dmarketplace.src.Controllers
 {
@@ -8,6 +10,12 @@ namespace _3dmarketplace.src.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
+
+        public required ProductService _productService;
+        ProductController(ProductService productService)
+        {
+            _productService = productService;
+        }
 
         private static readonly List<Product> _products = [];
 
@@ -25,9 +33,15 @@ namespace _3dmarketplace.src.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public async Task<ActionResult> Create([FromBody] Product product)
         {
-            _products.Add(product);
+
+            if (product == null)
+            {
+                return BadRequest();
+            }
+
+            var response = await _productService.Create(product);
             return Ok();
         }
 
