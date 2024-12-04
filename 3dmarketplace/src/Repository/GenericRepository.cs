@@ -30,12 +30,12 @@ namespace _3dmarketplace.src.Repository
             return entity;
         }
 
-        public async Task Create(T entity)
+        public async Task<T> Create(T entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
 
-            Console.WriteLine("Entity created" + entity.ToString());
+            return entity;
 
         }
 

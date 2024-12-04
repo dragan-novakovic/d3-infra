@@ -22,9 +22,9 @@ namespace _3dmarketplace.src.Services
             return await _categoryRepository.GetById(id);
         }
 
-        public async Task Create(Category category)
+        public async Task<Category> Create(Category category)
         {
-            await _categoryRepository.Create(category);
+            return await _categoryRepository.Create(category);
         }
 
         public async Task Update(Category category)

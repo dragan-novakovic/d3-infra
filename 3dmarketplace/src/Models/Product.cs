@@ -26,6 +26,13 @@ namespace _3dmarketplace.src.Models
         public required Category.Category Category { get; set; }
         public required UserMetadata User { get; set; }
         public ICollection<Review>? Reviews { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Name: {Name}, Price: {Price}, Description: {Description}, Stock: {Stock}, UserId: {UserId}, CategoryId: {CategoryId}, Category: {Category}, User: {User}, Reviews: {Reviews?.Count}";
+
+        }
     }
 
 }

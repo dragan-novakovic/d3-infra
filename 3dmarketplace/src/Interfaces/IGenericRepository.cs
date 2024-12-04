@@ -4,7 +4,7 @@ namespace _3dmarketplace.src.Interfaces
     {
         Task<IEnumerable<T>> GetAll();
         Task<T> GetById(int id);
-        Task Create(T entity);
+        Task<T> Create(T entity);
         Task Update(T entity);
         Task Delete(int id);
     }

@@ -33,7 +33,7 @@ namespace _3dmarketplace.src.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody(EmptyBodyBehavior = EmptyBodyBehavior.Allow)] CategoryDto category_dto)
+        public async Task<ActionResult<Category>> Create([FromBody(EmptyBodyBehavior = EmptyBodyBehavior.Allow)] CategoryDto category_dto)
         {
             if (category_dto == null)
             {
@@ -46,8 +46,8 @@ namespace _3dmarketplace.src.Controllers
                 Products = []
             };
 
-            await _categoryService.Create(category);
-            return Ok();
+            var new_category = await _categoryService.Create(category);
+            return Ok(new_category);
         }
 
     }
