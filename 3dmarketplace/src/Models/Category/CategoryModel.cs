@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace _3dmarketplace.src.Models
+namespace _3dmarketplace.src.Models.Category
 {
 
 
@@ -11,7 +11,7 @@ namespace _3dmarketplace.src.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public required int Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public required string Name { get; set; }
 

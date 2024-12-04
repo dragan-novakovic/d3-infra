@@ -22,11 +22,9 @@ namespace _3dmarketplace.src.Services
             return await _productRepository.GetById(id);
         }
 
-        public async Task<Product> Create(Product product)
+        public async Task Create(Product product)
         {
-            var response = await _productRepository.Create(product);
-
-            return response;
+            await _productRepository.Create(product);
         }
 
         public async Task Update(Product product)

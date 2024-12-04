@@ -1,5 +1,5 @@
 using _3dmarketplace.src.Interfaces;
-using _3dmarketplace.src.Models;
+using _3dmarketplace.src.Models.Category;
 
 namespace _3dmarketplace.src.Services
 {
@@ -22,11 +22,9 @@ namespace _3dmarketplace.src.Services
             return await _categoryRepository.GetById(id);
         }
 
-        public async Task<Category> Create(Category category)
+        public async Task Create(Category category)
         {
-            var response = await _categoryRepository.Create(category);
-
-            return response;
+            await _categoryRepository.Create(category);
         }
 
         public async Task Update(Category category)

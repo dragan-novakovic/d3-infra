@@ -41,7 +41,7 @@ namespace _3dmarketplace.src.Controllers
                 return BadRequest();
             }
 
-            var response = await _productService.Create(product);
+            await _productService.Create(product);
             return Ok();
         }
 

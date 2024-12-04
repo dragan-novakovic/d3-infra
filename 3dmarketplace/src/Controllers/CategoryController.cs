@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using _3dmarketplace.src.Models;
 using _3dmarketplace.src.Services;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using _3dmarketplace.src.Models.Category;
 
 namespace _3dmarketplace.src.Controllers
 {
@@ -11,7 +13,7 @@ namespace _3dmarketplace.src.Controllers
     {
 
         public required CategoryService _categoryService;
-        CategoryController(CategoryService categoryService)
+        public CategoryController(CategoryService categoryService)
         {
             _categoryService = categoryService;
         }
@@ -26,21 +28,26 @@ namespace _3dmarketplace.src.Controllers
 
 
         [HttpGet("{id}")]
-        public ActionResult<Category> GetProduct(int id)
+        public ActionResult<Category> GetCategory(int id)
         {
             return NotFound();
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] Category product)
+        public async Task<ActionResult> Create([FromBody(EmptyBodyBehavior = EmptyBodyBehavior.Allow)] CategoryDto category_dto)
         {
-
-            if (product == null)
+            if (category_dto == null)
             {
-                return BadRequest();
+                return BadRequest(error: "Category is null");
             }
 
-            var response = await _categoryService.Create(product);
+            var category = new Category
+            {
+                Name = category_dto.Name,
+                Products = []
+            };
+
+            await _categoryService.Create(category);
             return Ok();
         }
 
