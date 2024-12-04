@@ -39,6 +39,7 @@ builder.Services.AddDbContext<AplicationContext>(options =>
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<UserService>();
 
 
 builder.Services.AddIdentityApiEndpoints<UserMetadata>().AddEntityFrameworkStores<AplicationContext>();

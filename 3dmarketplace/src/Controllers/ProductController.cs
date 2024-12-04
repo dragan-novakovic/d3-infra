@@ -32,13 +32,24 @@ namespace _3dmarketplace.src.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] Product product)
+        public async Task<ActionResult> Create([FromBody] ProductDto product_dto)
         {
 
-            if (product == null)
+            if (product_dto == null)
             {
                 return BadRequest();
             }
+
+
+            var product = new Product
+            {
+                Name = product_dto.Name,
+                Price = product_dto.Price,
+                Description = product_dto.Description,
+                Stock = product_dto.Stock,
+                UserId = product_dto.UserId,
+                CategoryId = product_dto.CategoryId
+            };
 
             await _productService.Create(product);
             return Ok();
