@@ -23,7 +23,7 @@ namespace _3dmarketplace.src.Models
         public string? UserId { get; set; }
         [ForeignKey("CategoryId")]
         public required int CategoryId { get; set; }
-        public required Category Category { get; set; }
+        public required Category.Category Category { get; set; }
         public required UserMetadata User { get; set; }
         public ICollection<Review>? Reviews { get; set; }
     }

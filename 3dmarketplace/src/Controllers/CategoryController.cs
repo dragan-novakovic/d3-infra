@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using _3dmarketplace.src.Models;
-using _3dmarketplace.src.Services;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using _3dmarketplace.src.Services;
 using _3dmarketplace.src.Models.Category;
 
 namespace _3dmarketplace.src.Controllers

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using _3dmarketplace.src.Models;
+using _3dmarketplace.src.Models.Category;
 
 public class AplicationContext : IdentityDbContext<UserMetadata>
 {
