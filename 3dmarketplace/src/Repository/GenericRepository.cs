@@ -26,13 +26,16 @@ namespace _3dmarketplace.src.Repository
 
         public async Task<T> GetById(int id)
         {
-            return await _dbSet.FindAsync(id);
+            var entity = await _dbSet.FindAsync(id) ?? throw new KeyNotFoundException($"Entity with id {id} not found.");
+            return entity;
         }
 
         public async Task Create(T entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
+
+            Console.WriteLine("Entity created" + entity.ToString());
 
         }
 

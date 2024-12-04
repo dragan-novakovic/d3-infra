@@ -16,6 +16,13 @@ namespace _3dmarketplace.src.Models.Category
         public required string Name { get; set; }
 
         public ICollection<Product>? Products { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Name: {Name}, Products: {Products?.Count}";
+        }
+
     }
 
 }
