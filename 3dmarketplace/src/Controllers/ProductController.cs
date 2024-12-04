@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using _3dmarketplace.src.Models;
-using System.Data.Common;
 using _3dmarketplace.src.Services;
 
 namespace _3dmarketplace.src.Controllers
@@ -12,7 +11,7 @@ namespace _3dmarketplace.src.Controllers
     {
 
         public required ProductService _productService;
-        ProductController(ProductService productService)
+        public ProductController(ProductService productService)
         {
             _productService = productService;
         }
