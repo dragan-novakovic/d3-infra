@@ -16,11 +16,10 @@ namespace _3dmarketplace.src.Controllers
             _productService = productService;
         }
 
-        private static readonly List<Product> _products = [];
-
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
+            var _products = await _productService.GetAll();
             return Ok(_products);
         }
 
@@ -51,8 +50,8 @@ namespace _3dmarketplace.src.Controllers
                 CategoryId = product_dto.CategoryId
             };
 
-            await _productService.Create(product);
-            return Ok();
+            var new_product = await _productService.Create(product);
+            return Ok(new_product);
         }
 
     }
