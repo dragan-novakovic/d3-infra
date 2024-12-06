@@ -1,4 +1,3 @@
-using _3dmarketplace.src.Models;
 using _3dmarketplace.src.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +27,14 @@ namespace _3dmarketplace.src.Controllers
         {
             var users = await _userService.GetAll();
             return Ok(users);
+        }
+
+        [Route("{id}")]
+        [HttpGet]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _userService.GetById(id);
+            return Ok(user);
         }
     }
 };
