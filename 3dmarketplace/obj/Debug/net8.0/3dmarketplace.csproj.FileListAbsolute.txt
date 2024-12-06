@@ -226,3 +226,4 @@ C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Swashbuckle.AspN
 C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\obj\Debug\net8.0\3dmarketplace.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Dragan\Desktop\d3-infra\3dmarketplace\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
