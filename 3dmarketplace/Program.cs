@@ -30,12 +30,7 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddBearerToken();
+builder.Services.AddAuthentication(IdentityConstants.BearerScheme);
 // .AddJwtBearer(options =>
 // {
 //     options.TokenValidationParameters = new TokenValidationParameters

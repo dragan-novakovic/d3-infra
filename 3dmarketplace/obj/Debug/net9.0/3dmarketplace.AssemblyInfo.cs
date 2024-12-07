@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("f0e37d5c-5a84-4f0a-bb35-de60bb2f23bd")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("3dmarketplace")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06bbc6b10d738a173230e4bef98fc38bc774a91a")]
 [assembly: System.Reflection.AssemblyProductAttribute("3dmarketplace")]
 [assembly: System.Reflection.AssemblyTitleAttribute("3dmarketplace")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
