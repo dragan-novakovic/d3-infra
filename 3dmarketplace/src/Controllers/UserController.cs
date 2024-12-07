@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using _3dmarketplace.src.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _3dmarketplace.src.Controllers
@@ -21,9 +23,10 @@ namespace _3dmarketplace.src.Controllers
             return Ok("Roleeeers");
         }
 
+        [Authorize]
         [Route("users")]
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetUsers(ClaimsPrincipal user)
         {
             var users = await _userService.GetAll();
             return Ok(users);
