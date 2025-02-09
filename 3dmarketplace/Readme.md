@@ -5,6 +5,8 @@ Product
 Category
 
 # DB Startup
+``
+docker compose up ?
 
 # Startup
 ```C#
