@@ -41,3 +41,7 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+3dmarketplace/obj/Debug/net9.0/
+
+obj\net9.0\
