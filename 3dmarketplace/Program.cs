@@ -63,7 +63,7 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 builder.Services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("database_health_check", Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy);
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
@@ -89,10 +89,7 @@ builder.Services.AddIdentityApiEndpoints<UserMetadata>(opt =>
 
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
-
-
+app.MapOpenApi();
 app.UseRouting();
 
 app.UseAuthentication();
