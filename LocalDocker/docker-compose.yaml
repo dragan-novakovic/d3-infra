@@ -2,15 +2,16 @@ services:
   marketplace_backend:
     container_name: marketplace_backend
     build:
-      context: ./3dmarketplace
+      context: ../3dmarketplace
       dockerfile: Dockerfile
     environment:
       - test=testeric
     ports:
       - "5280:5280"
-    command: dotnet run
     depends_on:
       - postgresdb
+    volumes:
+      - ./3dmarketplace:/app
 
   postgresdb:
     image: postgres
