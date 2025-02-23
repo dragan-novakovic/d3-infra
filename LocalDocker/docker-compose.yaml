@@ -9,6 +9,8 @@ services:
     ports:
       - "5280:5280"
     command: dotnet run
+    depends_on:
+      - postgresdb
 
   postgresdb:
     image: postgres
